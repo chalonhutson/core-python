@@ -3,6 +3,8 @@
 
 # put your code here
 import random
+import os
+import sys
 
 # Empty dictionary to fill in later with all the ratings.
 rating_dict = {}
@@ -26,7 +28,7 @@ def greeting():
 # Gives selections for program.
 def menu():
     print("Please select from the following options, and type the corresponding number to choose.")
-    print("1 - See all the restaurant ratings. \n2 - Add a new restaurant rating. \n3 - Update a restaurants rating. \n4 - Quit")
+    print("1 - See all the restaurant ratings. \n2 - Add a new restaurant rating. \n3 - Update a restaurants rating. \n4 - See all directory files\n0 - Quit")
     choice = input('Type selection here: ')
 
     if choice == "1":
@@ -36,7 +38,13 @@ def menu():
     elif choice == "3":
         update_res(True)
     elif choice == "4":
+        dir_list = os.listdir()
+        print("Files and directories")
+        for i in dir_list:
+            print(i)
+    elif choice == "0":
         print("Thank you! Have a great day!")
+        sys.exit()
 
 
 # Function reads out all of the ratings to the screen.
